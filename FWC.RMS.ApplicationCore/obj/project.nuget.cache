@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "GooFoG28/RoOn9ngR9i1cT9r9C1SWNQLe/7Q7+8rd1UVMNEqXVdkIKlE9ONSD9AgM4oZ6K2ytQ0Xq3jQsAypsA==",
+  "success": true,
+  "projectFilePath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj",
+  "expectedPackageFiles": [
+    "/Users/natarajkt/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/natarajkt/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
