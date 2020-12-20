@@ -5,17 +5,19 @@
  *
  */
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using FWC.RMS.ApplicationCore.Data;
 
 namespace FWC.RMS.ApplicationCore.Entities
 {
-    public class DepartmentDocument : BaseEntity<long>
+    [Table("DepartmentDocument")]
+    public class DepartmentDocument : BaseEntity<long>, IAuditable
     {
         public DepartmentDocument()
         {
         }
 
-        public int CheckNumber { get; set; }
+        public long CheckNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
@@ -27,7 +29,7 @@ namespace FWC.RMS.ApplicationCore.Entities
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public string ModifiedBy { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
 
     }
 }

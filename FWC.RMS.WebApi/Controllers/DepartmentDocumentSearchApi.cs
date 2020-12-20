@@ -14,19 +14,20 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using FWC.RMS.WebApi.Attributes;
-using FWC.RMS.WebApi.Security;
+using FWC.RMS.Attributes;
+using FWC.RMS.Security;
 using Microsoft.AspNetCore.Authorization;
-using FWC.RMS.ApplicationCore.Dto;
+using FWC.RMS.ApplicationCore.DTOs;
 
-namespace FWC.RMS.WebApi.Controllers
-{
+
+namespace FWC.RMS.Controllers
+{ 
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class DepartmentDocumentSearchApiController : ControllerBase
-    {
+    { 
         /// <summary>
         /// Search Department Document records
         /// </summary>
@@ -35,12 +36,12 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpPost]
-        [Route("/v2/departmentDocumentSearch")]
+        [Route("/v1/departmentDocumentSearch")]
         [ValidateModelState]
         [SwaggerOperation("SearchDepartmentDocuments")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<DepartmentDocumentSearchResponse>), description: "successful operation")]
-        public virtual IActionResult SearchDepartmentDocuments([FromBody] DepartmentDocumentSearchRequest body)
-        {
+        public virtual IActionResult SearchDepartmentDocuments([FromBody]DepartmentDocumentSearchRequest body)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(List<DepartmentDocumentSearchResponse>));
 
@@ -51,10 +52,10 @@ namespace FWC.RMS.WebApi.Controllers
             // return StatusCode(500);
             string exampleJson = null;
             exampleJson = "[ {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 6,\n  \"depositNumber\" : 5,\n  \"checkAmount\" : 1.4658129805029452,\n  \"companyName\" : \"companyName\",\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"departmentDocumentNumber\" : 0,\n  \"checkDate\" : \"2000-01-23\",\n  \"transmittalNumber\" : 5,\n  \"cashListing\" : \"cashListing\"\n}, {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 6,\n  \"depositNumber\" : 5,\n  \"checkAmount\" : 1.4658129805029452,\n  \"companyName\" : \"companyName\",\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"departmentDocumentNumber\" : 0,\n  \"checkDate\" : \"2000-01-23\",\n  \"transmittalNumber\" : 5,\n  \"cashListing\" : \"cashListing\"\n} ]";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<DepartmentDocumentSearchResponse>>(exampleJson)
-            : default(List<DepartmentDocumentSearchResponse>);            //TODO: Change the data returned
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<List<DepartmentDocumentSearchResponse>>(exampleJson)
+                        : default(List<DepartmentDocumentSearchResponse>);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -66,12 +67,12 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpGet]
-        [Route("/v2/departmentDocumentSearch")]
+        [Route("/v1/departmentDocumentSearch")]
         [ValidateModelState]
         [SwaggerOperation("SearchDepartmentDocumentsByKeyword")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<DepartmentDocumentSearchResponse>), description: "successful operation")]
-        public virtual IActionResult SearchDepartmentDocumentsByKeyword([FromQuery][Required()] string keyword)
-        {
+        public virtual IActionResult SearchDepartmentDocumentsByKeyword([FromQuery][Required()]string keyword)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(List<DepartmentDocumentSearchResponse>));
 
@@ -82,10 +83,10 @@ namespace FWC.RMS.WebApi.Controllers
             // return StatusCode(500);
             string exampleJson = null;
             exampleJson = "[ {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 6,\n  \"depositNumber\" : 5,\n  \"checkAmount\" : 1.4658129805029452,\n  \"companyName\" : \"companyName\",\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"departmentDocumentNumber\" : 0,\n  \"checkDate\" : \"2000-01-23\",\n  \"transmittalNumber\" : 5,\n  \"cashListing\" : \"cashListing\"\n}, {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 6,\n  \"depositNumber\" : 5,\n  \"checkAmount\" : 1.4658129805029452,\n  \"companyName\" : \"companyName\",\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"departmentDocumentNumber\" : 0,\n  \"checkDate\" : \"2000-01-23\",\n  \"transmittalNumber\" : 5,\n  \"cashListing\" : \"cashListing\"\n} ]";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<DepartmentDocumentSearchResponse>>(exampleJson)
-            : default(List<DepartmentDocumentSearchResponse>);            //TODO: Change the data returned
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<List<DepartmentDocumentSearchResponse>>(exampleJson)
+                        : default(List<DepartmentDocumentSearchResponse>);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }

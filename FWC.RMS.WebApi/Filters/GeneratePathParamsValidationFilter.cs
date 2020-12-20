@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace FWC.RMS.WebApi.Filters
+namespace FWC.RMS.Filters
 {
     /// <summary>
     /// Path Parameter Validation Rules Filter

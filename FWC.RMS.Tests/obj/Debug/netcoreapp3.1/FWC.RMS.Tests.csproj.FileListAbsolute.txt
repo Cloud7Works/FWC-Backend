@@ -1,0 +1,17 @@
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Tests.deps.json
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Tests.runtimeconfig.json
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Tests.runtimeconfig.dev.json
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Tests.dll
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Tests.pdb
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.ApplicationCore.dll
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Infrastructure.dll
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.ApplicationCore.pdb
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\bin\Debug\netcoreapp3.1\FWC.RMS.Infrastructure.pdb
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.csprojAssemblyReference.cache
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.AssemblyInfoInputs.cache
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.AssemblyInfo.cs
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.csproj.CoreCompileInputs.cache
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.csproj.CopyComplete
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.dll
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.pdb
+C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.Tests\obj\Debug\netcoreapp3.1\FWC.RMS.Tests.genruntimeconfig.cache

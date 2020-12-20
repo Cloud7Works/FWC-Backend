@@ -14,12 +14,12 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using FWC.RMS.WebApi.Attributes;
-using FWC.RMS.WebApi.Security;
+using FWC.RMS.Attributes;
+using FWC.RMS.Security;
 using Microsoft.AspNetCore.Authorization;
-using FWC.RMS.ApplicationCore.Dto;
+using FWC.RMS.ApplicationCore.DTOs;
 
-namespace FWC.RMS.WebApi.Controllers
+namespace FWC.RMS.Controllers
 { 
     /// <summary>
     /// 
@@ -36,10 +36,10 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpPost]
-        [Route("/v2/transmittals/{transmittalNumber}/departmentDocuments")]
+        [Route("/v1/transmittals/{transmittalNumber}/departmentDocuments")]
         [ValidateModelState]
         [SwaggerOperation("CreateDepartmentDocument")]
-        [SwaggerResponse(statusCode: 200, type: typeof(DepartmentDocument), description: "successful operation")]
+        [SwaggerResponse(statusCode: 200, type: typeof(DepartmentDocumentDto), description: "successful operation")]
         public virtual IActionResult CreateDepartmentDocument([FromBody]DepartmentDocumentRequest body, [FromRoute][Required]long? transmittalNumber)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -54,8 +54,8 @@ namespace FWC.RMS.WebApi.Controllers
             exampleJson = "{\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<DepartmentDocument>(exampleJson)
-                        : default(DepartmentDocument);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<DepartmentDocumentDto>(exampleJson)
+                        : default(DepartmentDocumentDto);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -67,10 +67,10 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpGet]
-        [Route("/v2/transmittals/{transmittalNumber}/departmentDocuments")]
+        [Route("/v1/transmittals/{transmittalNumber}/departmentDocuments")]
         [ValidateModelState]
         [SwaggerOperation("GetDepartmentDocuments")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<DepartmentDocument>), description: "successful operation")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<DepartmentDocumentDto>), description: "successful operation")]
         public virtual IActionResult GetDepartmentDocuments([FromRoute][Required]long? transmittalNumber)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -85,8 +85,8 @@ namespace FWC.RMS.WebApi.Controllers
             exampleJson = "[ {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n}, {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n} ]";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<List<DepartmentDocument>>(exampleJson)
-                        : default(List<DepartmentDocument>);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<List<DepartmentDocumentDto>>(exampleJson)
+                        : default(List<DepartmentDocumentDto>);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -100,10 +100,10 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpPatch]
-        [Route("/v2/transmittals/{transmittalNumber}/departmentDocuments/{departmentDocumentsNumber}")]
+        [Route("/v1/transmittals/{transmittalNumber}/departmentDocuments/{departmentDocumentsNumber}")]
         [ValidateModelState]
         [SwaggerOperation("UpdateDepartmentDocument")]
-        [SwaggerResponse(statusCode: 200, type: typeof(DepartmentDocument), description: "successful operation")]
+        [SwaggerResponse(statusCode: 200, type: typeof(DepartmentDocumentDto), description: "successful operation")]
         public virtual IActionResult UpdateDepartmentDocument([FromBody]DepartmentDocumentRequest body, [FromRoute][Required]long? transmittalNumber, [FromRoute][Required]long? departmentDocumentsNumber)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -118,8 +118,8 @@ namespace FWC.RMS.WebApi.Controllers
             exampleJson = "{\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<DepartmentDocument>(exampleJson)
-                        : default(DepartmentDocument);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<DepartmentDocumentDto>(exampleJson)
+                        : default(DepartmentDocumentDto);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }

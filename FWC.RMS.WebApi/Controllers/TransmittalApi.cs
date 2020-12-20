@@ -14,19 +14,32 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using FWC.RMS.WebApi.Attributes;
-using FWC.RMS.WebApi.Security;
+using FWC.RMS.Attributes;
+using FWC.RMS.Security;
 using Microsoft.AspNetCore.Authorization;
-using FWC.RMS.ApplicationCore.Dto;
+using FWC.RMS.ApplicationCore.DTOs;
+using FWC.RMS.ApplicationCore.Interfaces;
 
-namespace FWC.RMS.WebApi.Controllers
-{
+namespace FWC.RMS.Controllers
+{ 
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class TransmittalApiController : ControllerBase
     {
+
+        private readonly ITransmittalService _transmittalService;
+      
+        /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="transmittalService"></param>
+        public TransmittalApiController(ITransmittalService transmittalService)
+        {
+            _transmittalService = transmittalService;
+        }
+
         /// <summary>
         /// Create a Transmittal record
         /// </summary>
@@ -35,27 +48,13 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpPost]
-        [Route("/v2/transmittals")]
+        [Route("/v1/transmittals")]
         [ValidateModelState]
         [SwaggerOperation("CreateTransmittals")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Transmittal), description: "successful operation")]
-        public virtual IActionResult CreateTransmittals([FromBody] CreateTransmittalRequest body)
-        {
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Transmittal));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-            string exampleJson = null;
-            exampleJson = "{\n  \"transmittalTotalCount\" : 6,\n  \"transmittalTotal\" : 1.4658129805029452,\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"transmittalNumber\" : 0,\n  \"transmittalDate\" : \"2000-01-23\"\n}";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Transmittal>(exampleJson)
-            : default(Transmittal);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        [SwaggerResponse(statusCode: 200, type: typeof(TransmittalDto), description: "successful operation")]
+        public virtual IActionResult CreateTransmittals([FromBody]CreateTransmittalRequest body)
+        { 
+            return new ObjectResult(_transmittalService.CreateTransmittal(body));
         }
 
         /// <summary>
@@ -66,27 +65,14 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpGet]
-        [Route("/v2/transmittals")]
+        [Route("/v1/transmittals")]
         [ValidateModelState]
         [SwaggerOperation("GetTransmittals")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<Transmittal>), description: "successful operation")]
-        public virtual IActionResult GetTransmittals([FromQuery][Required()] string transmittalStatus)
-        {
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<Transmittal>));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-            string exampleJson = null;
-            exampleJson = "[ {\n  \"transmittalTotalCount\" : 6,\n  \"transmittalTotal\" : 1.4658129805029452,\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"transmittalNumber\" : 0,\n  \"transmittalDate\" : \"2000-01-23\"\n}, {\n  \"transmittalTotalCount\" : 6,\n  \"transmittalTotal\" : 1.4658129805029452,\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"transmittalNumber\" : 0,\n  \"transmittalDate\" : \"2000-01-23\"\n} ]";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<Transmittal>>(exampleJson)
-            : default(List<Transmittal>);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        [SwaggerResponse(statusCode: 200, type: typeof(List<TransmittalDto>), description: "successful operation")]
+        public virtual IActionResult GetTransmittals([FromQuery][Required()]string transmittalStatus)
+        { 
+           
+            return new ObjectResult(_transmittalService.GetTransmittalsByStatus(transmittalStatus));
         }
 
         /// <summary>
@@ -98,27 +84,14 @@ namespace FWC.RMS.WebApi.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpPatch]
-        [Route("/v2/transmittals/{transmittalNumber}")]
+        [Route("/v1/transmittals/{transmittalNumber}")]
         [ValidateModelState]
         [SwaggerOperation("UpdateTransmittals")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Transmittal), description: "successful operation")]
-        public virtual IActionResult UpdateTransmittals([FromBody] UpdateTransmittalRequest body, [FromRoute][Required] long? transmittalNumber)
-        {
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Transmittal));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-            string exampleJson = null;
-            exampleJson = "{\n  \"transmittalTotalCount\" : 6,\n  \"transmittalTotal\" : 1.4658129805029452,\n  \"transmittalStatus\" : \"transmittalStatus\",\n  \"transmittalNumber\" : 0,\n  \"transmittalDate\" : \"2000-01-23\"\n}";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Transmittal>(exampleJson)
-            : default(Transmittal);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        [SwaggerResponse(statusCode: 200, type: typeof(TransmittalDto), description: "successful operation")]
+        public virtual IActionResult UpdateTransmittals([FromBody]UpdateTransmittalRequest body, [FromRoute][Required]long? transmittalNumber)
+        { 
+            
+            return new ObjectResult(_transmittalService.UpdateTransmittal(transmittalNumber.GetValueOrDefault(),body));
         }
     }
 }

@@ -5,11 +5,13 @@
  *
  */
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using FWC.RMS.ApplicationCore.Data;
 
 namespace FWC.RMS.ApplicationCore.Entities
 {
-    public class Transmittal : BaseEntity<long>
+    [Table("Transmittal")]
+    public class Transmittal : BaseEntity<long>, IAuditable
     {
         public Transmittal()
         {
@@ -19,11 +21,11 @@ namespace FWC.RMS.ApplicationCore.Entities
         public int TransmittalTotalCount { get; set; }
         public decimal TransmittalTotal { get; set; }
         public string TransmittalStatus { get; set; }
-        public bool IsDeleted { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public string ModifiedBy { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
+
 
     }
 }

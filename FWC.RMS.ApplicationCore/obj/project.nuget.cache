@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "GooFoG28/RoOn9ngR9i1cT9r9C1SWNQLe/7Q7+8rd1UVMNEqXVdkIKlE9ONSD9AgM4oZ6K2ytQ0Xq3jQsAypsA==",
+  "dgSpecHash": "wDj0tJYGl/9aKtgMQzbACdEGCLA/AbMbUq/oILZJKFFc1rjELkOdgMPdpr68tU48zVyJUpoIQnwlYRg9IOu9qw==",
   "success": true,
-  "projectFilePath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj",
+  "projectFilePath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj",
   "expectedPackageFiles": [
-    "/Users/natarajkt/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
-    "/Users/natarajkt/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\natar\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\natar\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\natar\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\natar\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\natar\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

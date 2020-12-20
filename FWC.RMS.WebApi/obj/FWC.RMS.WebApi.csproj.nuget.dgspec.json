@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.WebApi/FWC.RMS.WebApi.csproj": {}
+    "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.WebApi\\FWC.RMS.WebApi.csproj": {}
   },
   "projects": {
-    "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj": {
+    "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj",
+        "projectUniqueName": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj",
         "projectName": "FWC.RMS.ApplicationCore",
-        "projectPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj",
-        "packagesPath": "/Users/natarajkt/.nuget/packages/",
-        "outputPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/obj/",
+        "projectPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\natar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/natarajkt/.config/NuGet/NuGet.Config"
+          "C:\\Users\\natar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +40,10 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
@@ -62,34 +68,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.Infrastructure/FWC.RMS.Infrastructure.csproj": {
+    "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.Infrastructure\\FWC.RMS.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.Infrastructure/FWC.RMS.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.Infrastructure\\FWC.RMS.Infrastructure.csproj",
         "projectName": "FWC.RMS.Infrastructure",
-        "projectPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.Infrastructure/FWC.RMS.Infrastructure.csproj",
-        "packagesPath": "/Users/natarajkt/.nuget/packages/",
-        "outputPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.Infrastructure/obj/",
+        "projectPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.Infrastructure\\FWC.RMS.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\natar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/natarajkt/.config/NuGet/NuGet.Config"
+          "C:\\Users\\natar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj": {
-                "projectPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj"
+              "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj"
               }
             }
           }
@@ -104,7 +112,17 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.1, )"
             },
@@ -128,37 +146,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.WebApi/FWC.RMS.WebApi.csproj": {
+    "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.WebApi\\FWC.RMS.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.WebApi/FWC.RMS.WebApi.csproj",
-        "projectName": "FWC.RMS.WebApi",
-        "projectPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.WebApi/FWC.RMS.WebApi.csproj",
-        "packagesPath": "/Users/natarajkt/.nuget/packages/",
-        "outputPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.WebApi/obj/",
+        "projectUniqueName": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.WebApi\\FWC.RMS.WebApi.csproj",
+        "projectName": "IO.Swagger",
+        "projectPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.WebApi\\FWC.RMS.WebApi.csproj",
+        "packagesPath": "C:\\Users\\natar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/natarajkt/.config/NuGet/NuGet.Config"
+          "C:\\Users\\natar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj": {
-                "projectPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.ApplicationCore/FWC.RMS.ApplicationCore.csproj"
+              "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.ApplicationCore\\FWC.RMS.ApplicationCore.csproj"
               },
-              "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.Infrastructure/FWC.RMS.Infrastructure.csproj": {
-                "projectPath": "/Users/natarajkt/Projects/FWC.RMS/FWC.RMS.Infrastructure/FWC.RMS.Infrastructure.csproj"
+              "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.Infrastructure\\FWC.RMS.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\natar\\Documents\\GitHub\\FWC-Backend\\FWC.RMS.Infrastructure\\FWC.RMS.Infrastructure.csproj"
               }
             }
           }
@@ -173,25 +193,33 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[5.5.1, )"
             },
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[5.5.1, )"
             },
             "Swashbuckle.AspNetCore.Newtonsoft": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[5.5.1, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[5.5.1, )"
             },
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[5.5.1, )"
             }
           },
           "imports": [
@@ -212,7 +240,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
