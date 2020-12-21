@@ -84,7 +84,7 @@ namespace FWC.RMS.Controllers
             {
                 return new ObjectResult(_departmentDocumentService.GetDepartmentDocumentsByTransmittalNumber(transmittalNumber.GetValueOrDefault()));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500);
             }
@@ -130,16 +130,18 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("DeleteDepartmentDocument")]
         public virtual IActionResult DeleteDepartmentDocument([FromRoute][Required] long? transmittalNumber, [FromRoute][Required] long? departmentDocumentsNumber)
         {
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
+            try
+            {
+               if(_departmentDocumentService.DeleteDepartmentDocument(departmentDocumentsNumber.GetValueOrDefault()))
+                    return StatusCode(200);
+               else
+                    return StatusCode(400);
 
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-
-            throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
         }
     }
 }

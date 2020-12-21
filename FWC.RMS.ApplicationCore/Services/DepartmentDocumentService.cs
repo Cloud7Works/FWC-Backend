@@ -54,5 +54,22 @@ namespace FWC.RMS.ApplicationCore.Services
            return _mapper.Map<List<DepartmentDocumentDto>>(departmentDocs); ;
 
         }
-}
+
+
+        public bool DeleteDepartmentDocument(long departmentDocumentNumber)
+        {
+            DepartmentDocument departmentDocumentEntity = _departmentDocumentRepository.GetByIdAsync(departmentDocumentNumber).Result;
+
+            if (departmentDocumentEntity != null)
+            {
+                _departmentDocumentRepository.DeleteAsync(departmentDocumentEntity).Wait();
+            }
+            else
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
 }

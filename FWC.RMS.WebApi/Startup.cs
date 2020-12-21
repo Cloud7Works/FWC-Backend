@@ -80,6 +80,14 @@ namespace FWC.RMS
             services.AddAuthentication(ApiKeyAuthenticationHandler.SchemeName)
                 .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler.SchemeName, null);
 
+            services.AddCors(options =>
+                options.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowCredentials()
+                           .AllowAnyHeader();
+                }));
 
             services
                 .AddSwaggerGen(c =>
@@ -93,7 +101,7 @@ namespace FWC.RMS
                         {
                            Name = "Swagger Codegen Contributors",
                            Url = new Uri("https://github.com/swagger-api/swagger-codegen"),
-                           Email = "apiteam@fwc.com"
+                           Email = "apiteam@fwc.gov"
                         },
                         TermsOfService = new Uri("http://swagger.io/terms/")
                     });

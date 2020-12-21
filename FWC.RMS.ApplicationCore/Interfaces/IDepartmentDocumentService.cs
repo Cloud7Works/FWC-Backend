@@ -12,5 +12,7 @@ namespace FWC.RMS.ApplicationCore.Interfaces
         DepartmentDocumentDto UpdateDepartmentDocument(long departmentDocumentNumber, DepartmentDocumentRequest departmentDocumentRequest);
 
         List<DepartmentDocumentDto> GetDepartmentDocumentsByTransmittalNumber(long transmittalNumber);
+
+        bool DeleteDepartmentDocument(long departmentDocumentNumber);
     }
 }
