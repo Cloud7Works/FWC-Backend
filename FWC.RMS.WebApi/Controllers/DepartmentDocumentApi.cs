@@ -121,7 +121,7 @@ namespace FWC.RMS.Controllers
         /// </summary>
         /// <param name="transmittalNumber">Transmittal Number</param>
         /// <param name="departmentDocumentsNumber">Department Document Number</param>
-        /// <response code="200">Bad request</response>
+        /// <response code="200">Success</response>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
         [HttpDelete]
@@ -138,7 +138,7 @@ namespace FWC.RMS.Controllers
                     return StatusCode(400);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500);
             }

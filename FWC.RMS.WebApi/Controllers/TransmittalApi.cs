@@ -53,8 +53,15 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("CreateTransmittals")]
         [SwaggerResponse(statusCode: 200, type: typeof(TransmittalDto), description: "successful operation")]
         public virtual IActionResult CreateTransmittals([FromBody]CreateTransmittalRequest body)
-        { 
-            return new ObjectResult(_transmittalService.CreateTransmittal(body));
+        {
+                try
+                {
+                    return new ObjectResult(_transmittalService.CreateTransmittal(body));
+                }
+                catch (Exception) 
+                { 
+                    return StatusCode(500); 
+                }
         }
 
         /// <summary>
@@ -70,9 +77,15 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("GetTransmittals")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<TransmittalDto>), description: "successful operation")]
         public virtual IActionResult GetTransmittals([FromQuery][Required()]string transmittalStatus)
-        { 
-           
-            return new ObjectResult(_transmittalService.GetTransmittalsByStatus(transmittalStatus));
+        {
+            try 
+            { 
+                return new ObjectResult(_transmittalService.GetTransmittalsByStatus(transmittalStatus));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
         /// <summary>
@@ -89,9 +102,15 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("UpdateTransmittals")]
         [SwaggerResponse(statusCode: 200, type: typeof(TransmittalDto), description: "successful operation")]
         public virtual IActionResult UpdateTransmittals([FromBody]UpdateTransmittalRequest body, [FromRoute][Required]long? transmittalNumber)
-        { 
-            
-            return new ObjectResult(_transmittalService.UpdateTransmittal(transmittalNumber.GetValueOrDefault(),body));
+        {
+            try
+            {
+                return new ObjectResult(_transmittalService.UpdateTransmittal(transmittalNumber.GetValueOrDefault(), body));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
     }
 }
