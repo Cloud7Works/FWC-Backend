@@ -1,9 +1,0 @@
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\bin\Debug\netstandard2.1\FWC.RMS.ApplicationCore.deps.json
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\bin\Debug\netstandard2.1\FWC.RMS.ApplicationCore.dll
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\bin\Debug\netstandard2.1\FWC.RMS.ApplicationCore.pdb
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\obj\Debug\netstandard2.1\FWC.RMS.ApplicationCore.AssemblyInfoInputs.cache
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\obj\Debug\netstandard2.1\FWC.RMS.ApplicationCore.AssemblyInfo.cs
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\obj\Debug\netstandard2.1\FWC.RMS.ApplicationCore.csproj.CoreCompileInputs.cache
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\obj\Debug\netstandard2.1\FWC.RMS.ApplicationCore.dll
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\obj\Debug\netstandard2.1\FWC.RMS.ApplicationCore.pdb
-C:\Users\natar\Documents\GitHub\FWC-Backend\FWC.RMS.ApplicationCore\obj\Debug\netstandard2.1\FWC.RMS.ApplicationCore.csprojAssemblyReference.cache
