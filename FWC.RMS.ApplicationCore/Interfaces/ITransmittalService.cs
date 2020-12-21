@@ -9,7 +9,7 @@ namespace FWC.RMS.ApplicationCore.Interfaces
     {
         TransmittalDto CreateTransmittal(CreateTransmittalRequest transmittalRequest);
 
-        TransmittalDto UpdateTransmittal(long transmittalId, UpdateTransmittalRequest transmittalRequest);
+        TransmittalDto UpdateTransmittal(long transmittalNumber, UpdateTransmittalRequest transmittalRequest);
 
         List<TransmittalDto> GetTransmittalsByStatus(string transmittalStatus);
     }

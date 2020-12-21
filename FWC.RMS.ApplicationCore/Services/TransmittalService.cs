@@ -33,10 +33,10 @@ namespace FWC.RMS.ApplicationCore.Services
             return _mapper.Map<TransmittalDto>(transmittalEntity);
         }
 
-        public TransmittalDto UpdateTransmittal(long transmittalId, UpdateTransmittalRequest transmittalRequest)
+        public TransmittalDto UpdateTransmittal(long transmittalNumber, UpdateTransmittalRequest transmittalRequest)
         {
 
-           Transmittal transmittalEntity =  _transmittalRepository.GetByIdAsync(transmittalId).Result;
+           Transmittal transmittalEntity =  _transmittalRepository.GetByIdAsync(transmittalNumber).Result;
             transmittalEntity.TransmittalStatus = transmittalRequest.TransmittalStatus;
             transmittalEntity.TransmittalTotal = transmittalRequest.TransmittalTotal.Value;
             transmittalEntity.TransmittalTotalCount = transmittalRequest.TransmittalTotalCount.Value;

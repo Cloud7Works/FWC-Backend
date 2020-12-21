@@ -5,6 +5,7 @@
  *
  */
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using FWC.RMS.ApplicationCore.Data;
 
@@ -26,6 +27,7 @@ namespace FWC.RMS.ApplicationCore.Entities
         public string ModifiedBy { get; set; }
         public DateTime? ModifiedOn { get; set; }
 
+        public List<DepartmentDocument> DepartmentDocuments { get; set; }
 
     }
 }

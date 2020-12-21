@@ -22,6 +22,19 @@ namespace FWC.RMS.Infrastructure.Data
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            builder.Entity<Transmittal>()
+             .HasMany(t => t.DepartmentDocuments)
+            .WithOne();
+
+            builder.Entity<DepartmentDocument>()
+            .HasOne(d => d.Transmittal)
+            .WithMany(t => t.DepartmentDocuments)
+            .HasForeignKey(d => d.TransmittalNumber);
+
+            builder.Entity<Transmittal>()
+                .Navigation(t => t.DepartmentDocuments)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

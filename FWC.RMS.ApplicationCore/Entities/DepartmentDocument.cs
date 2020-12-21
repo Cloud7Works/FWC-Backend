@@ -31,5 +31,7 @@ namespace FWC.RMS.ApplicationCore.Entities
         public string ModifiedBy { get; set; }
         public DateTime? ModifiedOn { get; set; }
 
+        public Transmittal Transmittal { get; set; }
+
     }
 }

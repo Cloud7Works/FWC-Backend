@@ -84,7 +84,7 @@ namespace FWC.RMS.Controllers
             {
                 return new ObjectResult(_departmentDocumentService.GetDepartmentDocumentsByTransmittalNumber(transmittalNumber.GetValueOrDefault()));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return StatusCode(500);
             }
@@ -114,6 +114,32 @@ namespace FWC.RMS.Controllers
             {
                 return StatusCode(500);
             }
+        }
+
+        /// <summary>
+        /// Delete a Department Document record
+        /// </summary>
+        /// <param name="transmittalNumber">Transmittal Number</param>
+        /// <param name="departmentDocumentsNumber">Department Document Number</param>
+        /// <response code="200">Bad request</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="500">Internal server error</response>
+        [HttpDelete]
+        [Route("/v1/transmittals/{transmittalNumber}/departmentDocuments/{departmentDocumentsNumber}")]
+        [ValidateModelState]
+        [SwaggerOperation("DeleteDepartmentDocument")]
+        public virtual IActionResult DeleteDepartmentDocument([FromRoute][Required] long? transmittalNumber, [FromRoute][Required] long? departmentDocumentsNumber)
+        {
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400);
+
+            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(500);
+
+            throw new NotImplementedException();
         }
     }
 }
