@@ -23,6 +23,10 @@ namespace FWC.RMS.WebApi
             CreateMap<CreateTransmittalRequest, Transmittal>(); // map from CreateTransmittalRequest to Transmittal
             CreateMap<UpdateTransmittalRequest, Transmittal>(); // map from UpdateTransmittalRequest to Transmittal
 
+            CreateMap<DepartmentDocument, DepartmentDocumentDto>() // map from DepartmentDocument to DepartmentDocumentDto
+            .ForMember(dto => dto.DepartmentDocumentNumber, m => m.MapFrom(u => u.Id))
+            .ForMember(dto => dto.DateTimeStamp, m => m.MapFrom(u => u.ModifiedOn ?? u.CreatedOn));
+            CreateMap<DepartmentDocumentRequest, DepartmentDocument>(); // map from DepartmentDocumentRequest to DepartmentDocument
         }
     }
 }

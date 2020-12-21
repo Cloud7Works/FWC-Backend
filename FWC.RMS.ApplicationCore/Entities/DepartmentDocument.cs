@@ -21,7 +21,7 @@ namespace FWC.RMS.ApplicationCore.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
-        public string CheckAmount { get; set; }
+        public Decimal CheckAmount { get; set; }
         public string CashListing { get; set; }
         public string Comments { get; set; }
         public long TransmittalNumber { get; set; }

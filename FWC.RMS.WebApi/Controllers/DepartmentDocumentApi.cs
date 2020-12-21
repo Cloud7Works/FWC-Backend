@@ -18,6 +18,7 @@ using FWC.RMS.Attributes;
 using FWC.RMS.Security;
 using Microsoft.AspNetCore.Authorization;
 using FWC.RMS.ApplicationCore.DTOs;
+using FWC.RMS.ApplicationCore.Interfaces;
 
 namespace FWC.RMS.Controllers
 { 
@@ -26,7 +27,20 @@ namespace FWC.RMS.Controllers
     /// </summary>
     [ApiController]
     public class DepartmentDocumentApiController : ControllerBase
-    { 
+    {
+
+        private readonly IDepartmentDocumentService _departmentDocumentService;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="departmentDocumentService"></param>
+        public DepartmentDocumentApiController(IDepartmentDocumentService departmentDocumentService)
+        {
+            _departmentDocumentService = departmentDocumentService;
+        }
+
+
         /// <summary>
         /// Create a Department Document record
         /// </summary>
@@ -41,22 +55,15 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("CreateDepartmentDocument")]
         [SwaggerResponse(statusCode: 200, type: typeof(DepartmentDocumentDto), description: "successful operation")]
         public virtual IActionResult CreateDepartmentDocument([FromBody]DepartmentDocumentRequest body, [FromRoute][Required]long? transmittalNumber)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(DepartmentDocument));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-            string exampleJson = null;
-            exampleJson = "{\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<DepartmentDocumentDto>(exampleJson)
-                        : default(DepartmentDocumentDto);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        {
+            try 
+            { 
+                return new ObjectResult(_departmentDocumentService.CreateDepartmentDocument(transmittalNumber.GetValueOrDefault(), body)); 
+            }
+            catch(Exception) 
+            { 
+                return StatusCode(500); 
+            }
         }
 
         /// <summary>
@@ -72,22 +79,15 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("GetDepartmentDocuments")]
         [SwaggerResponse(statusCode: 200, type: typeof(List<DepartmentDocumentDto>), description: "successful operation")]
         public virtual IActionResult GetDepartmentDocuments([FromRoute][Required]long? transmittalNumber)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<DepartmentDocument>));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-            string exampleJson = null;
-            exampleJson = "[ {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n}, {\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n} ]";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<List<DepartmentDocumentDto>>(exampleJson)
-                        : default(List<DepartmentDocumentDto>);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        {
+            try
+            {
+                return new ObjectResult(_departmentDocumentService.GetDepartmentDocumentsByTransmittalNumber(transmittalNumber.GetValueOrDefault()));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
         /// <summary>
@@ -105,22 +105,15 @@ namespace FWC.RMS.Controllers
         [SwaggerOperation("UpdateDepartmentDocument")]
         [SwaggerResponse(statusCode: 200, type: typeof(DepartmentDocumentDto), description: "successful operation")]
         public virtual IActionResult UpdateDepartmentDocument([FromBody]DepartmentDocumentRequest body, [FromRoute][Required]long? transmittalNumber, [FromRoute][Required]long? departmentDocumentsNumber)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(DepartmentDocument));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(500);
-            string exampleJson = null;
-            exampleJson = "{\n  \"firstName\" : \"firstName\",\n  \"lastName\" : \"lastName\",\n  \"checkNumber\" : 1,\n  \"comments\" : \"comments\",\n  \"checkAmount\" : 5.962133916683182,\n  \"companyName\" : \"companyName\",\n  \"dateTimeStamp\" : \"dateTimeStamp\",\n  \"departmentDocumentNumber\" : 0,\n  \"transmittalNumber\" : 6,\n  \"cashListing\" : \"cashListing\"\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<DepartmentDocumentDto>(exampleJson)
-                        : default(DepartmentDocumentDto);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        {
+            try
+            {
+                return new ObjectResult(_departmentDocumentService.UpdateDepartmentDocument(departmentDocumentsNumber.GetValueOrDefault(), body));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
     }
 }

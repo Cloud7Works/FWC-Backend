@@ -108,6 +108,7 @@ namespace FWC.RMS
                 });
             services.AddScoped(typeof(IAsyncRepository<,>), typeof(EfRepository<,>));
             services.AddTransient<ITransmittalService, TransmittalService>();
+            services.AddTransient<IDepartmentDocumentService, DepartmentDocumentService>();
 
             // Auto Mapper Configurations
             services.AddAutoMapper(typeof(AutoMapping));

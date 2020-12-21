@@ -68,7 +68,7 @@ namespace FWC.RMS.ApplicationCore.DTOs
         /// Gets or Sets CheckAmount
         /// </summary>
         [DataMember(Name="checkAmount")]
-        public double? CheckAmount { get; set; }
+        public decimal? CheckAmount { get; set; }
 
         /// <summary>
         /// Gets or Sets CashListing
@@ -86,7 +86,7 @@ namespace FWC.RMS.ApplicationCore.DTOs
         /// Gets or Sets DateTimeStamp
         /// </summary>
         [DataMember(Name="dateTimeStamp")]
-        public string DateTimeStamp { get; set; }
+        public DateTime? DateTimeStamp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

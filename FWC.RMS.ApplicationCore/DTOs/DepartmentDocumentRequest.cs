@@ -30,7 +30,7 @@ namespace FWC.RMS.ApplicationCore.DTOs
         /// Gets or Sets CheckNumber
         /// </summary>
         [DataMember(Name="checkNumber")]
-        public int? CheckNumber { get; set; }
+        public long? CheckNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
