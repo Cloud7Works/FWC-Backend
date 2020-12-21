@@ -21,12 +21,71 @@ namespace FWC.RMS.Infrastructure.Data
        
         public List<DepartmentDocumentSearchResponse> AdvancedSearch(DepartmentDocumentSearchRequest searchRequest)
         {
-            throw new NotImplementedException();
+
+            var result = _dbContext.Transmittals
+            .Join(_dbContext.DepartmentDocuments, t => t.Id, d => d.TransmittalNumber,
+            (t, d) => new { t, d })
+            .Select(td => new DepartmentDocumentSearchResponse
+            {
+                TransmittalNumber = td.t.Id,
+                TransmittalStatus = td.t.TransmittalStatus,
+                DepartmentDocumentNumber = td.d.Id,
+                FirstName = td.d.FirstName,
+                LastName = td.d.LastName,
+                CompanyName = td.d.CompanyName,
+                CheckNumber = td.d.CheckNumber,
+                CheckAmount = td.d.CheckAmount,
+                CashListing = td.d.CashListing,
+            });
+
+
+            if (searchRequest.TransmittalNumber.HasValue)
+                result = result.Where(td => td.TransmittalNumber == searchRequest.TransmittalNumber);
+
+            if (searchRequest.DepartmentDocumentNumber.HasValue)
+                result = result.Where(td => td.DepartmentDocumentNumber == searchRequest.DepartmentDocumentNumber);
+
+            if (searchRequest.CheckNumber.HasValue)
+                result = result.Where(td => td.CheckNumber == searchRequest.CheckNumber);
+
+            if (!String.IsNullOrEmpty(searchRequest.TransmittalStatus))
+                result = result.Where(td => td.TransmittalStatus == searchRequest.TransmittalStatus);
+
+            if (!String.IsNullOrEmpty(searchRequest.FirstName))
+                result = result.Where(td => td.FirstName == searchRequest.FirstName);
+
+            if (!String.IsNullOrEmpty(searchRequest.LastName))
+                result = result.Where(td => td.LastName == searchRequest.LastName);
+
+            if (!String.IsNullOrEmpty(searchRequest.CompanyName))
+                result = result.Where(td => td.CompanyName == searchRequest.CompanyName);
+
+            return result.ToList();
         }
 
         public List<DepartmentDocumentSearchResponse> BasicSearch(string keyword)
         {
-            throw new NotImplementedException();
+            var result = _dbContext.Transmittals
+           .Join(_dbContext.DepartmentDocuments, t => t.Id, d => d.TransmittalNumber,
+           (t, d) => new { t, d })
+                 .Where(td => td.d.FirstName == keyword
+                  || td.d.LastName == keyword
+                  || td.d.CompanyName == keyword
+              )
+           .Select(td => new DepartmentDocumentSearchResponse
+           {
+               TransmittalNumber = td.t.Id,
+               TransmittalStatus = td.t.TransmittalStatus,
+               DepartmentDocumentNumber = td.d.Id,
+               FirstName = td.d.FirstName,
+               LastName = td.d.LastName,
+               CompanyName = td.d.CompanyName,
+               CheckNumber = td.d.CheckNumber,
+               CheckAmount = td.d.CheckAmount,
+               CashListing = td.d.CashListing,
+           });
+
+            return result.ToList();
         }
     }
 }

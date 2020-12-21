@@ -60,7 +60,7 @@ namespace FWC.RMS.ApplicationCore.DTOs
         /// Gets or Sets CheckAmount
         /// </summary>
         [DataMember(Name="checkAmount")]
-        public double? CheckAmount { get; set; }
+        public decimal? CheckAmount { get; set; }
 
         /// <summary>
         /// Gets or Sets CheckDate

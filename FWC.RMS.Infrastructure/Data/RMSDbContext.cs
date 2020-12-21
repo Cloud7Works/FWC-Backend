@@ -16,7 +16,7 @@ namespace FWC.RMS.Infrastructure.Data
         }
 
         public DbSet<Transmittal> Transmittals { get; set; }
-        public DbSet<DepartmentDocument> CatalogItems { get; set; }
+        public DbSet<DepartmentDocument> DepartmentDocuments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

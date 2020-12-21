@@ -115,8 +115,11 @@ namespace FWC.RMS
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
             services.AddScoped(typeof(IAsyncRepository<,>), typeof(EfRepository<,>));
+            services.AddScoped(typeof(ISearchRepository), typeof(SearchRepository));
             services.AddTransient<ITransmittalService, TransmittalService>();
             services.AddTransient<IDepartmentDocumentService, DepartmentDocumentService>();
+            services.AddTransient<IDepartmentDocumentSearchService, DepartmentDocumentSearchService>();
+            
 
             // Auto Mapper Configurations
             services.AddAutoMapper(typeof(AutoMapping));
