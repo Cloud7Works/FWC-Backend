@@ -88,8 +88,6 @@ namespace FWC.RMS
                        .AllowAnyHeader();
             }));
 
-
-
             services
                 .AddSwaggerGen(c =>
                 {
@@ -141,6 +139,7 @@ namespace FWC.RMS
             // app.UseStaticFiles();
 
             app.UseCors("MyPolicy");
+
 
             app.UseAuthorization();
 
