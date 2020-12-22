@@ -80,14 +80,15 @@ namespace FWC.RMS
             services.AddAuthentication(ApiKeyAuthenticationHandler.SchemeName)
                 .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler.SchemeName, null);
 
-            services.AddCors(options =>
-                options.AddPolicy("MyPolicy", builder =>
-                {
-                    builder.AllowAnyOrigin()
-                           .AllowAnyMethod()
-                           .AllowCredentials()
-                           .AllowAnyHeader();
-                }));
+            
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
+
 
             services
                 .AddSwaggerGen(c =>
@@ -138,6 +139,8 @@ namespace FWC.RMS
 
             //TODO: Uncomment this if you need wwwroot folder
             // app.UseStaticFiles();
+
+            app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 
