@@ -23,6 +23,7 @@ namespace FWC.RMS.Infrastructure.Data
         {
 
             var result = _dbContext.Transmittals
+            .AsNoTracking()
             .Join(_dbContext.DepartmentDocuments, t => t.Id, d => d.TransmittalNumber,
             (t, d) => new { t, d })
             .Select(td => new DepartmentDocumentSearchResponse
@@ -52,13 +53,13 @@ namespace FWC.RMS.Infrastructure.Data
                 result = result.Where(td => td.TransmittalStatus == searchRequest.TransmittalStatus);
 
             if (!String.IsNullOrEmpty(searchRequest.FirstName))
-                result = result.Where(td => td.FirstName == searchRequest.FirstName);
+                result = result.Where(td => EF.Functions.Like(td.FirstName, "%" + searchRequest.FirstName + "%"));
 
             if (!String.IsNullOrEmpty(searchRequest.LastName))
-                result = result.Where(td => td.LastName == searchRequest.LastName);
+                result = result.Where(td => EF.Functions.Like(td.LastName, "%" + searchRequest.LastName + "%"));
 
             if (!String.IsNullOrEmpty(searchRequest.CompanyName))
-                result = result.Where(td => td.CompanyName == searchRequest.CompanyName);
+                result = result.Where(td => EF.Functions.Like(td.CompanyName, "%" + searchRequest.CompanyName + "%"));
 
             return result.ToList();
         }
@@ -66,11 +67,16 @@ namespace FWC.RMS.Infrastructure.Data
         public List<DepartmentDocumentSearchResponse> BasicSearch(string keyword)
         {
             var result = _dbContext.Transmittals
+            .AsNoTracking()
            .Join(_dbContext.DepartmentDocuments, t => t.Id, d => d.TransmittalNumber,
            (t, d) => new { t, d })
-                 .Where(td => td.d.FirstName == keyword
-                  || td.d.LastName == keyword
-                  || td.d.CompanyName == keyword
+                 .Where(td => td.d.TransmittalNumber.ToString() == keyword
+                  || td.d.CheckNumber.ToString() == keyword
+                  || td.d.Id.ToString() == keyword
+                  || EF.Functions.Like(td.d.FirstName, "%" + keyword + "%")
+                  || EF.Functions.Like(td.d.LastName, "%" + keyword + "%")
+                  || EF.Functions.Like(td.d.CompanyName, "%" + keyword + "%")
+                 
               )
            .Select(td => new DepartmentDocumentSearchResponse
            {

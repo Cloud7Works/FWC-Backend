@@ -68,7 +68,7 @@ namespace FWC.RMS.Controllers
         /// <summary>
         /// Search Department Document records by keyword
         /// </summary>
-        /// <param name="keyword">Search Keyword (FirstName or LastName)</param>
+        /// <param name="keyword">Search Keyword (Transmittal Number or DDN or Check Number or FirstName or LastName)</param>
         /// <response code="200">successful operation</response>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal server error</response>
