@@ -53,13 +53,13 @@ namespace FWC.RMS.Infrastructure.Data
                 result = result.Where(td => td.TransmittalStatus == searchRequest.TransmittalStatus);
 
             if (!String.IsNullOrEmpty(searchRequest.FirstName))
-                result = result.Where(td => EF.Functions.Like(td.FirstName, "%" + searchRequest.FirstName + "%"));
+                result = result.Where(td => EF.Functions.Like(td.FirstName,  searchRequest.FirstName + "%"));
 
             if (!String.IsNullOrEmpty(searchRequest.LastName))
-                result = result.Where(td => EF.Functions.Like(td.LastName, "%" + searchRequest.LastName + "%"));
+                result = result.Where(td => EF.Functions.Like(td.LastName,  searchRequest.LastName + "%"));
 
             if (!String.IsNullOrEmpty(searchRequest.CompanyName))
-                result = result.Where(td => EF.Functions.Like(td.CompanyName, "%" + searchRequest.CompanyName + "%"));
+                result = result.Where(td => EF.Functions.Like(td.CompanyName, searchRequest.CompanyName + "%"));
 
             return result.ToList();
         }
@@ -73,9 +73,9 @@ namespace FWC.RMS.Infrastructure.Data
                  .Where(td => td.d.TransmittalNumber.ToString() == keyword
                   || td.d.CheckNumber.ToString() == keyword
                   || td.d.Id.ToString() == keyword
-                  || EF.Functions.Like(td.d.FirstName, "%" + keyword + "%")
-                  || EF.Functions.Like(td.d.LastName, "%" + keyword + "%")
-                  || EF.Functions.Like(td.d.CompanyName, "%" + keyword + "%")
+                  || EF.Functions.Like(td.d.FirstName,  keyword + "%")
+                  || EF.Functions.Like(td.d.LastName,  keyword + "%")
+                  || EF.Functions.Like(td.d.CompanyName, keyword + "%")
                  
               )
            .Select(td => new DepartmentDocumentSearchResponse
