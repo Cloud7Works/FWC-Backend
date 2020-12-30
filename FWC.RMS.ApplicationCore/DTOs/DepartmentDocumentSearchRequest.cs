@@ -29,7 +29,6 @@ namespace FWC.RMS.ApplicationCore.DTOs
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
-        [Required]
         [DataMember(Name="firstName")]
         public string FirstName { get; set; }
 
